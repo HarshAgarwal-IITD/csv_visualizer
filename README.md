@@ -1,8 +1,17 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
-
-First, run the development server:
+First install the dependencies
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
+```
+now run the development server:
 
 ```bash
 npm run dev
@@ -17,6 +26,18 @@ bun dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+
+If you want your data to be updated to the backend ,
+1. create a .env file
+2. add your database url
+3. ```bash
+   npx prisma migrate dev --name <migration_name>
+   npx prisma generate client
+   ```
+4. Now your data will be updated to your backend (works only for a specific schema , change the schema according to your data needs.
+5. go to src/app/api/upload/route.ts
+6. uncommment line 69 to 81
+
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
